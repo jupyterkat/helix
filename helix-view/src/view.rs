@@ -232,7 +232,7 @@ impl View {
         } else {
             // return None if cursor is in (view - scrolloff)
             let offset = new_offset(scrolloff);
-            (offset != current_offset).then(|| offset) // TODO: use 'then_some' when 1.62 <= MSRV
+            (offset != current_offset).then_some(offset)
         }
     }
 

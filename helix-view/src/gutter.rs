@@ -9,7 +9,7 @@ use crate::{
 fn count_digits(n: usize) -> usize {
     // NOTE: if int_log gets standardized in stdlib, can use checked_log10
     // (https://github.com/rust-lang/rust/issues/70887#issue)
-    std::iter::successors(Some(n), |&n| (n >= 10).then(|| n / 10)).count()
+    std::iter::successors(Some(n), |&n| (n >= 10).then_some(n / 10)).count()
 }
 
 pub type GutterFn<'doc> = Box<dyn FnMut(usize, bool, &mut String) -> Option<Style> + 'doc>;
